@@ -8,6 +8,201 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="Home.css">
     <link rel="stylesheet" href="Calender.css">
+<style>
+.firstRow{
+    display: grid ;
+     grid-template-columns: repeat(3, 1fr); 
+    width: 100%;
+     gap: 30px ;
+     margin-bottom: 30px ;
+     
+     visibility: visible ;
+     opacity: 1 ;
+}
+.COVERAboutUs  .titleCoverAboutUs p {
+  font-size: 23px;
+    font-family: 'Atyp Kido TRIAL', sans-serif;
+overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Set the number of lines to show */
+  -webkit-box-orient: vertical;
+  font-weight: 300;
+  margin: 0;
+  padding-top: 0px;
+}
+@media(max-width: 2650px) {
+  .COVERAboutUs{
+  margin-left: 0px;
+}
+}
+ @media (max-width: 2560px) {
+    .firstRow {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        width: 100%;
+        margin-bottom: 30px;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .eventItem {
+        width: 100%;
+        max-width: 500px;
+        justify-content: flex-start;
+    }
+}
+
+       @media(max-width: 1440px) {
+        .firstRow{
+    display: grid ;
+     grid-template-columns: repeat(3, 1fr); 
+            
+     gap: 30px ;
+     margin-bottom: 30px ;
+     
+     visibility: visible ;
+     opacity: 1 ;
+}
+ .ComingEventContainerAboutUs .COVERAboutUs{
+  margin-left: 0px;
+  
+}
+}
+    @media (max-width: 1366px) {
+  .eventItem {
+    width: 100%; /* 2 items per row */
+    max-width: 500px;
+    }
+    .firstRow{
+    display: grid ;
+     grid-template-columns: repeat(3, 1fr); 
+      
+     gap: 30px ;
+     margin-bottom: 30px ;
+     width: 100%;
+     visibility: visible ;
+     opacity: 1 ;
+}
+    
+    }
+      @media(max-width:1024px){
+         .firstRow{
+    display: grid ;
+     grid-template-columns: repeat(2, 1fr); 
+
+     gap: 30px ;
+     margin-bottom: 30px ;
+     
+     visibility: visible ;
+     opacity: 1 ;
+}
+      }
+      @media (max-width: 820px) {
+        .firstRow{
+    display: grid ;
+     grid-template-columns: repeat(2, 1fr); 
+
+     gap: 30px ;
+     margin-bottom: 30px ;
+     
+     visibility: visible ;
+     opacity: 1 ;
+}
+      .ComingEventContainerCalender{
+        margin-left: -100px;
+      }
+      }
+       @media (max-width: 768px) {
+       .firstRow{
+    display: grid ;
+     grid-template-columns: repeat(2, 1fr); 
+
+     gap: 30px ;
+     margin-bottom: 30px ;
+     
+     visibility: visible ;
+     opacity: 1 ;
+}
+      .ComingEventContainerCalender{
+        margin-left:100px;
+      }
+      .COVERAboutUs{
+        width: 100%;
+      }
+     .rightColumn .titleCoverAboutUs p{
+       
+        overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Set the number of lines to show */
+  -webkit-box-orient: vertical;
+      }
+      .buttonDiscoverMoreDriveYourSoulComing button{
+       display: none;
+      }
+     
+    }
+     
+
+
+@media(max-width:540px){
+    .firstRow{
+    display: grid ;
+     grid-template-columns:repeat(2,1fr); 
+
+     gap: 30px ;
+     margin-bottom: 30px ;
+     
+     visibility: visible ;
+     opacity: 1 ;
+}
+}
+@media (max-width: 414px) {
+   .firstRow{
+    display: grid ;
+     grid-template-columns: 1fr; 
+
+     gap: 30px ;
+     margin-bottom: 30px ;
+     
+     visibility: visible ;
+     opacity: 1 ;
+}
+.ComingEventContainerCalender {
+  width: 100%;
+  margin-left: 0px;
+}
+  .titleCoverAboutUs {
+  display: none;
+  }
+ 
+.leftColumn  .dateAboutUs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.leftColumn  .dateAboutUs .pnumber , p {
+    display: flex;
+    flex-direction: column;
+ font-weight: 400;
+ font-size: 25px;
+
+} }
+
+@media(max-width:430px){
+    .firstRow{
+    display: grid ;
+     grid-template-columns: 1fr; 
+
+     gap: 30px ;
+     margin-bottom: 30px ;
+     
+     visibility: visible ;
+     opacity: 1 ;
+}
+}
+
+</style>
 </head>
 <body>
     <div class="headerContainer">
@@ -18,13 +213,13 @@
         </div>
         <div class="MenuHeader">
             <ul>
-                <li><a href="index.php">HOME</a></li>
+               <li><a href="index.php">HOME</a></li>
                 <li><a href="AboutUs.php">ABOUT US</a></li>
                 <li><a href="Space.php">LAKUM SPACES</a></li>
                 <li><a href="HomeLukum.php">EXHIBITIONS</a></li>
                 <li><a href="HomeLukum.php#upcoming">EVENTS & WORKSHOPS</a></li>
                 <li><a href="Calender.php">CALENDER</a></li>
-                <li><a href="Space.php#form">SHOP</a></li>    
+                <li><a href="Shop.php">SHOP</a></li>  
             </ul>
         </div>
     </div>
@@ -124,7 +319,27 @@
                 console.error('Error loading events:', error);
                 document.getElementById('eventsList').innerHTML = '<p style="text-align: center; padding: 40px; color: #c33;">Error loading events. Please refresh the page.</p>';
             });
+function convertTo12Hour(timeRange) {
+    if (!timeRange) return '';
 
+    // Example: "17:00 - 22:00"
+    const times = timeRange.split('-').map(t => t.trim());
+
+    function formatTime(t) {
+        let [hours, minutes] = t.split(':').map(Number);
+        const suffix = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12; // convert 0 -> 12
+        return `${hours}:${minutes.toString().padStart(2, '0')} ${suffix}`;
+    }
+
+    if (times.length === 2) {
+        return `${formatTime(times[0])} - ${formatTime(times[1])}`;
+    } else if (times.length === 1) {
+        return formatTime(times[0]);
+    }
+
+    return timeRange;
+}
         function filterByMonth(month, clickedElement) {
             // Update active state
             document.querySelectorAll('.monthsSidebar li').forEach(li => li.classList.remove('active'));
@@ -154,7 +369,7 @@
             // Create events HTML
             let eventsHTML = '';
             for (let i = 0; i < filteredEvents.length; i += 2) {
-                eventsHTML += '<div class="firstRow" style="display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 30px !important; margin-bottom: 30px !important; visibility: visible !important; opacity: 1 !important;">';
+                eventsHTML += '<div class="firstRow" >';
                 
                 // First event in row
                 const event1 = filteredEvents[i];
@@ -209,14 +424,15 @@
                                     <div class="COVERAboutUs">
                                         <div class="leftColumn">
                                             <div class="dateAboutUs">
+                                            <p class="pnumber">${event.day}</p>
                                                 <p>${event.month_short.toUpperCase()}</p>
-                                                <p class="pnumber">${event.day}</p>
+                                                
                                             </div>
                                         </div>
                                         <div class="rightColumn">
                                             <div class="titleCoverAboutUs"><p>${event.title}</p></div>
-                                            <div class="timeAboutUs"><p>${event.event_time || '17:00 - 22:00'}</p></div>
-                                            <div class="dateCoverAboutUs"><p>${event.day}${event.month_short.toUpperCase()}</p></div>
+                                                                 <div class="timeAboutUs"><p>${convertTo12Hour(event.event_time || '15:00 - 22:00')}</p></div>
+
                                             <div class="buttonDiscoverMoreDriveYourSoulComing">
                                                 <button>DISCOVER MORE</button>
                                             </div>
