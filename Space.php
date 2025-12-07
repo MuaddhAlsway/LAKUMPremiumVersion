@@ -9,6 +9,256 @@
     <link rel="stylesheet" href="Home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+<style>
+    .spaceImageBackground {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+/* LEFT SIDE — CONTENT + IMG1 */
+.leftContent {
+    width: 50%;
+}
+
+.leftContent h4 {
+    margin-bottom: 10px;
+}
+
+.leftContent p {
+    line-height: 1.6;
+}
+
+/* IMG1 UNDER CONTENT */
+.img1 img {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+/* RIGHT SIDE — IMG2 STARTS FROM TITLE HEIGHT */
+.rightImage {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.rightImage img {
+    width: 90%;
+    border-radius: 10px;
+}
+
+    .Space {
+  position: relative;
+  background-image: url("assest/img-3.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 0 0px;
+}
+
+.Space::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.nameSpace {
+  position: relative;
+  z-index: 2;
+  margin: 5px 0;
+}
+
+.nameSpace p {
+  font-size: 50px;
+  margin: 0;
+}
+
+.nameSpace p span {
+  font-weight: 600;
+}
+
+/* Collection row */
+.CollectionSpace {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;       /* المسافة بين العناصر */
+  padding: 20px 0; /* padding أعلى وأسفل */
+  position: relative;
+  z-index: 2;
+}
+
+.CollectionSpace p {
+  margin: 0;
+  font-size: 20px;
+  color: white;
+  padding: 8px 15px;
+ 
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+
+
+.SpaceVENUMContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px 10%; /* use percentage instead of 200px */
+}
+
+.titleSpaceVenum {
+  width: 100%;
+  text-align: left;
+}
+
+.titleSpaceVenum h4 {
+  font-size: 36px;
+
+  font-weight: 600;
+  margin-bottom: 20px;
+font-family: "Atyp Kido TRIAL";
+  color: #000;
+}
+
+.SpaceVENUMContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap; /* allow wrap on small screens */
+}
+
+    @media(max-width: 1366px){
+          .card {
+      flex: 0 0 calc(33.33% - 13.3px); /* 3 cards visible with gap */
+      height: auto;
+    }
+    }
+    /* 1024px */
+@media (max-width: 1024px) {
+    .rightImage img {
+        width: 100%;
+    }
+    .SpaceVENUMContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px 10px; /* use percentage instead of 200px */
+}
+
+}
+
+/* 820px AND BELOW */
+@media (max-width: 820px) {
+    .spaceImageBackground {
+        gap: 20px;
+    }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+    .spaceImageBackground {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .leftContent,
+    .rightImage {
+        width: 100%;
+    }
+
+    .rightImage {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .rightImage img {
+        width: 100%;
+    }
+}
+
+/* 520px */
+@media (max-width: 520px) {
+    .leftContent h4 {
+        font-size: 20px;
+    }
+
+    .leftContent p {
+        font-size: 14px;
+    }
+
+    .img1 img,
+    .rightImage img {
+        border-radius: 8px;
+    }
+}
+
+/* 430px */
+@media (max-width: 430px) {
+    .leftContent h4 {
+        font-size: 18px;
+    }
+
+    .leftContent p {
+        font-size: 13px;
+    }
+}
+
+/* 414px */
+@media (max-width: 414px) {
+    .leftContent h4 {
+        font-size: 17px;
+    }
+    .nameSpace p {
+        font-size: 25px;
+    }
+    .leftContent p {
+        font-size: 13px;
+    }
+    .CollectionSpace {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+     gap: 0px; 
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+    
+}
+.CollectionSpace p{
+   font-size: 15px;
+}
+
+}
+
+/* 412px */
+@media (max-width: 412px) {
+    .leftContent h4 {
+        font-size: 17px;
+    }
+
+    .leftContent p {
+        font-size: 13px;
+    }
+}
+</style>
+
 </head>
 <body>
     <div class="headerContainer">
@@ -40,7 +290,7 @@
             <p>Hub</p>
             <p>Library</p>
             <p>Shop</p>
-            <p>Cafe</p>
+            <p> Café</p>
         </div>
     </div>
 
@@ -52,16 +302,23 @@
         <div class="SpaceVENUMContent">
             <div class="LeftText">
                 <p>
-                    Lakum is more than just a space — it's a multi-dimensional destination for art, 
-                    culture, and connection. Our diverse facilities are designed to inspire, engage, 
-                    and bring communities together
+                    Lakum Artspace offers a versatile and elegantly designed venue, thoughtfully created to accommodate a 
+                    wide range of events, from art exhibitions and product launches to private celebrations, talks, and cultural 
+                    programs. The space unfolds across several distinctive areas, each with its own atmosphere and flexibility: 
+                    Hall 1, a spacious gallery ideal for large-scale installations or receptions; Hall 2, perfectly suited for intimate 
+                    showcases, creative workshops, and panel discussions; and the Mezzanine Floor, home to a welcoming 
+                    café, a curated Library, and the Lakum Shop, a retail corner that encourages relaxed breaks, quiet 
+                    exploration, and moments of discovery. Every corner of Lakum Artspace has been conceived with purpose, 
+                    blending functionality and aesthetic warmth to cultivate an inspiring setting where creativity and connection 
+                    naturally meet
                 </p>
                 <p>
-                    Lakum Artspace offers unique exhibitions and educational experiences 
-                    showcasing established and emerging artists and designers from Saudi Arabia, 
-                    the MENA region and internationally. Lakum Artspace is committed to working 
-                    collaboratively with regional and international galleries, museums and publications 
-                    to produce innovative projects
+                     To complement every occasion, Lakum offers a suite of additional services designed to ensure a seamless 
+                        and memorable experience. These include valet parking, assisted catering, professional security, and access 
+                        to trusted photographers and videographers to capture each moment. The venue can also accommodate live 
+                        music performances, adding an artistic and atmospheric touch to any gathering. Fully equipped with an in
+                        house sound system, projectors, and a curated catalogue of furniture available for rental, Lakum allows 
+                        every event to be tailored to its unique atmosphere and design vision
                 </p>
             </div>
 
@@ -69,7 +326,52 @@
                 <img src="./HADAF Company/IMG_3946 2.png" alt="">
             </div>
         </div>
-        
+       <div class="spaceImageBackground">
+
+    <!-- LEFT SIDE -->
+    <div class="leftContent">
+        <div class="titlespaceImageBackground">
+            <h4>GROUND FLOOR MAP</h4>
+        </div>
+
+        <div class="paragraphspaceImageBackground">
+            <p>
+                Lakum is more than just a space — it's a multi-dimensional destination for art, 
+                culture, and connection. Our diverse facilities are designed to inspire, engage, 
+                and bring communities together.
+            </p>
+        </div>
+
+        <div class="img1">
+            <img src="assest/img022.png" alt="">
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="rightImage">
+        <img src="assest/img011.png" alt="">
+    </div>
+
+</div>
+
+        <div class="floorsection" style='display:none'>
+            <div class="content">
+                <div class="titleFloor">
+                <h4>
+                     GROUND FLOOR MAP
+                </h4>
+            </div>
+            <div class="paragraph">
+                <p>
+                    Lakum is more than just a space — it's a multi-dimensional destination for art, 
+                    culture, and connection. Our diverse facilities are designed to inspire, engage, 
+                    and bring communities together
+                </p>
+            </div>
+            </div>
+           
+            
+        </div>
         <div class="ContainerSlide1">
             <div class="slider-container1">
                 <button class="nav prev">&#10094;</button>
@@ -233,24 +535,50 @@
             <p>&copy; 2025 LAKUM. All rights reserved.</p>
         </div>
     </footer>
-
+    
     <script>
-        // Menu toggle
-        const menuIcon = document.querySelector('.ri-menu-line');
-        const closeIcon = document.querySelector('.ri-close-line');
-        const menu = document.querySelector('.MenuHeader ul');
+document.addEventListener('DOMContentLoaded', () => {
+    const menuIcon = document.querySelector('.ri-menu-line');
+    const closeIcon = document.querySelector('.ri-close-line');
+    const menu = document.querySelector('.MenuHeader ul');
 
-        menuIcon.addEventListener('click', () => {
-            menu.classList.add('active');
-            menuIcon.style.display = 'none';
-            closeIcon.style.display = 'block';
-        });
-
-        closeIcon.addEventListener('click', () => {
-            menu.classList.remove('active');
+    function updateMenuIcons() {
+        if (window.innerWidth <= 1024) {
             menuIcon.style.display = 'block';
             closeIcon.style.display = 'none';
-        });
+            menu.classList.remove('active');
+        } else {
+            menuIcon.style.display = 'none';
+            closeIcon.style.display = 'none';
+            menu.classList.remove('active');
+        }
+    }
+
+    // Initial check
+    updateMenuIcons();
+
+    // Update on resize
+    window.addEventListener('resize', updateMenuIcons);
+
+    // Hamburger click
+    menuIcon.addEventListener('click', () => {
+        menu.classList.add('active');
+        menuIcon.style.display = 'none';
+        closeIcon.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // prevent scroll
+    });
+
+    // Close click
+    closeIcon.addEventListener('click', () => {
+        menu.classList.remove('active');
+        menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+        document.body.style.overflow = ''; // restore scroll
+    });
+});
+
+
+
 
         // Load most recent event for Space hero background
         fetch('api/get_events.php?type=latest&limit=1')
