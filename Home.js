@@ -21,20 +21,17 @@ updateMenuIcons();
 // Update on resize
 window.addEventListener('resize', updateMenuIcons);
 
-// Hamburger click
 menuIcon.addEventListener('click', () => {
-  menu.classList.add('active'); // show menu
-  menuIcon.style.display = 'none'; // hide hamburger
-  closeIcon.style.display = 'block'; // show close
+    menu.classList.add('active');     // show menu
+    menuIcon.style.display = 'none';  // hide hamburger
+    closeIcon.style.display = 'block';// show close
 });
 
-// Close click
 closeIcon.addEventListener('click', () => {
-  menu.classList.remove('active'); // hide menu
-  menuIcon.style.display = 'block'; // show hamburger
-  closeIcon.style.display = 'none'; // hide close
+    menu.classList.remove('active');  // hide menu
+    menuIcon.style.display = 'block'; // show hamburger
+    closeIcon.style.display = 'none'; // hide close
 });
-
 
 const sliderTrack = document.getElementById("sliderTrack");
 let slides = Array.from(sliderTrack.children);
