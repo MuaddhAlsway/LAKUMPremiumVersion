@@ -1,3 +1,4 @@
+
 <?php 
 require_once 'config/database.php';
 
@@ -28,6 +29,39 @@ while ($img = $images->fetch_assoc()) {
 }
 
 $conn->close();
+
+// Function to convert video URLs to embed URLs (YouTube and Vimeo only)
+function getEmbedUrl($url) {
+    // YouTube - various formats
+    if (preg_match('/youtube\.com\/watch\?v=([^\&\?\/]+)/', $url, $id)) {
+        return 'https://www.youtube.com/embed/' . $id[1];
+    }
+    if (preg_match('/youtube\.com\/embed\/([^\&\?\/]+)/', $url, $id)) {
+        return $url;
+    }
+    if (preg_match('/youtu\.be\/([^\&\?\/]+)/', $url, $id)) {
+        return 'https://www.youtube.com/embed/' . $id[1];
+    }
+    
+    // Vimeo
+    if (preg_match('/vimeo\.com\/(\d+)/', $url, $id)) {
+        return 'https://player.vimeo.com/video/' . $id[1];
+    }
+    
+    // If not YouTube or Vimeo, return null (don't display)
+    return null;
+}
+
+// Validate video URL
+function isValidVideoUrl($url) {
+    if (empty($url)) return false;
+    
+    // Check if it's YouTube or Vimeo
+    return (
+        preg_match('/youtube\.com|youtu\.be/', $url) ||
+        preg_match('/vimeo\.com/', $url)
+    );
+}
 
 // Format dates and times
 $event_date = date('d M', strtotime($event['event_date']));
@@ -62,6 +96,27 @@ $location_display = !empty($event['location']) ? $event['location'] : '';
     <link rel="stylesheet" href="Home.css">
     <link rel="icon" href="assest/logo-lakum- (1).png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <style>
+        .nameAhmedmatter p {
+  font-size: 20px;
+  margin: 0;
+}
+.nameAhmedmatter p{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.dateAhmedmaater p {
+  font-size: 30px;
+  margin: 0;
+}
+
+
+.yearahmedmatter p {
+  font-size: 30px;
+  margin: 0;
+}
+.Spa
+    </style>
 </head>
 <body>
     <div class="headerContainer">
@@ -124,6 +179,29 @@ $location_display = !empty($event['location']) ? $event['location'] : '';
         </div>
     </div>
     <?php endif; ?>
+
+    <?php if (!empty($event['video_link']) && isValidVideoUrl($event['video_link'])): 
+        $embedUrl = getEmbedUrl($event['video_link']);
+        if ($embedUrl):
+    ?>
+    <div class="video-container" style="max-width: 1200px; margin: 60px auto; padding: 0 20px;">
+        <div class="EXHIBITIONPREVIUSCONTAINER" style="margin-bottom: 30px;">
+            <h4>EVENT VIDEO</h4>
+        </div>
+        <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            <iframe 
+                src="<?php echo htmlspecialchars($embedUrl); ?>" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <?php 
+        endif;
+    endif; 
+    ?>
 
     <div class="HiglihtAhmedMatter">
         <h4>Create Your own Exhibition <span>with Lakum</span></h4>
