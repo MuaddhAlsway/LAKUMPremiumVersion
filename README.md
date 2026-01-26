@@ -972,7 +972,7 @@ For detailed documentation on specific features:
 
 <div align="center">
 
-### Made with ❤️ by LAKUM Artspace Team
+### Made with Muaddh AL-Sway❤️ by LAKUM Artspace Team
 
 [⬆ Back to Top](#-lakum-artspace---event-management--cultural-platform)
 
